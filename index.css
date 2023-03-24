@@ -1,0 +1,245 @@
+
+
+.btn{
+    background: #43d9be;
+    color: white;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .btn:focus{
+    outline: none !important;
+  }
+  .username{
+    font-weight: bold;
+  }
+  .time{
+    font-size: 0.7em;
+    color: #999;
+  }
+  .main-text{
+   font-weight: 800;
+    font-size: 38px;
+    color: #333;
+  }
+
+*{
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    .container{
+        margin-bottom: 20px;
+      display: flex;
+     
+        padding: 5px 5% ;
+       height: 490px;
+        gap: 15px;
+        width: 200%;
+        box-sizing: border-box;
+         
+      }
+      body{background-color:#857f7f} 
+   
+      .container .main-video{
+        background-color: #fff;
+         border-radius: 5px;
+         padding: 10px;
+       height: 450px;
+       width: 700px;
+           
+        }
+   .main-play{
+    width: 98%;
+    height: 90%;
+   }
+.main-video{
+    margin-top: 40px;
+ }
+    .main-video.title{
+        color: #333;
+        font-size: 23px;
+        
+        padding-top: 5px;
+        padding-bottom: 15px;
+        background-color: white;
+    }
+    .Video-list{
+        
+        position: absolute;
+        right: 2%;
+        margin-left: 10px;
+        height: 400px;
+        margin-top: 40px;
+          width: 23vw;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          border-radius: 8px;
+          background-color: #dad8d8;
+     }
+     .vid video{
+        width: 100px;
+        border-radius: 5px;
+     }
+     
+     ul::-webkit-scrollbar-track {
+        background: rgb(189, 188, 186);  
+        border-radius: 20px;      
+      }
+      ul::-webkit-scrollbar-thumb{
+        background: rgb(151, 151, 151);  
+        border-radius: 20px;   
+      }
+      ul::-webkit-scrollbar {
+          width: 7px
+                    
+      }
+      .Video-list::-webkit-scrollbar-track {
+        background: rgb(189, 188, 186);  
+        border-radius: 20px;      
+      }
+      .Video-list::-webkit-scrollbar-thumb{
+        background: rgb(151, 151, 151);  
+        border-radius: 20px;      
+      }
+      .Video-list::-webkit-scrollbar {
+          width: 7px
+                  
+      }
+      .Video-list .vid{
+        padding: 10px;
+        border-radius: 1px solid black;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+        padding: 10px;
+        background-color: rgb(125, 123, 123);
+      }
+      .vid:hover{
+        background-color: #5232e0;
+    }
+    .vid.active  {
+        background-color: #939393;
+        color: white;
+    }
+    .vid .title{
+        color: #333;
+    }*{
+margin: 0 ;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+  
+  body{background-color:#eee} 
+   
+
+
+
+.main-video.title{
+    color: #333;
+    font-size: 23px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    background-color: white;
+}
+
+ .vid video{
+    width: 100px;
+    border-radius: 5px;
+ }
+ 
+ ul::-webkit-scrollbar-track {
+    background: rgb(189, 188, 186);  
+    border-radius: 20px;      
+  }
+  ul::-webkit-scrollbar-thumb{
+    background: rgb(151, 151, 151);  
+    border-radius: 20px;   
+  }
+  ul::-webkit-scrollbar {
+      width: 7px
+                
+  }
+  .Video-list::-webkit-scrollbar-track {
+    background: rgb(189, 188, 186);  
+    border-radius: 20px;      
+  }
+  .Video-list::-webkit-scrollbar-thumb{
+    background: rgb(151, 151, 151);  
+    border-radius: 20px;      
+  }
+  .Video-list::-webkit-scrollbar {
+      width: 7px
+              
+  }
+  .Video-list .vid{
+    padding: 10px;
+    border-radius: 1px solid black;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+  }
+  .vid:hover{
+    background-color: #5232e0;
+}
+.vid.active  {
+    background-color: #939393;
+    color: white;
+}
+.vid .title{
+    color: #333;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+}
+.main-play{
+    border-radius: 10px;
+   }
+@media screen and (max-width: 1070px) {
+    body {
+      background-color: lightgreen;}
+      .vid{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .Video-list{
+       
+       
+        margin-left: 10px;
+        height: 200px;
+        margin-top: 40px;
+          width: 23vw;
+          overflow-y: scroll;
+          overflow-x: hidden;
+          border-radius: 8px;
+          background-color: #e7e7e7;
+     }
+     .main-play{
+        width: 98%;
+        height: 96%;
+       }
+   
+       .container .main-video{
+        margin-bottom: -100px;
+        background-color: #fff;
+         border-radius: 5px;
+         padding: 10px;
+       height: 65vmax;
+       width: 60vw;
+           
+        }
+        .Video-list{
+            height: 300px;
+        }
+    
+  }

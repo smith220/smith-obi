@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Auth.css">
+</head>
+
+<body>
+
+<form>
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <label for="Name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="Name" id="Name" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Password" name="psw" id="psw" required>
+
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+  <div style="display: flex; flex-direction: column; width: 100%;align-items: center;">
+
+    <button type="button" id="submitData" name="submitData" class="registerbtn">Register</button>
+    <button type="button" id="sign" name="submitData" class="registerbtn">Sign In</button>
+  </div>
+    </div>
+
+    <!-- <div class="container signin" id="sign">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div> -->
+</form>
+
+</body>
+</html>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+  apiKey: "AIzaSyCXfg2hRWQgG-VHAGZkirrW84v0JEBUxzM",
+  authDomain: "video-chat-23aec.firebaseapp.com",
+  databaseURL: "https://video-chat-23aec-default-rtdb.firebaseio.com",
+  projectId: "video-chat-23aec",
+  storageBucket: "video-chat-23aec.appspot.com",
+  messagingSenderId: "999013313047",
+  appId: "1:999013313047:web:c354e5ce9c70f27e1e8a52",
+  measurementId: "G-3GN1LF8C6X"
+};
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    submitData.addEventListener('click', (e) => {
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('psw').value;
+
+        //sign up user
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                // ... user.uid
+                set(ref(database, 'users/' + user.uid), {
+                    email: email,
+                    password: password
+                })
+                    .then(() => {
+                        // Data saved successfully!
+                        alert('user created successfully');
+        
+                    })
+                    .catch((error) => {
+                        // The write failed...
+                        alert(error);
+                    });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                alert(errorMessage);
+            });
+
+        // log in user
+   
+      
+        signOut(auth).then(() => {
+               // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    });    
+     const sign = document.querySelector('#sign')
+  
+    
+   sign.addEventListener(('click'),e=>{
+    var email = document.getElementById('email').value;
+        var password = document.getElementById('psw').value;
+        var displayName= document.getElementById('Name').value;
+    
+    signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                // ...
+
+                // save log in details into real time database
+                var lgDate = new Date();
+                update(ref(database, 'users/' + user.uid), {
+                    last_login: lgDate,
+                })
+                    .then(() => {
+                        // Data saved successfully!
+                    
+ auth.onAuthStateChanged ( function async (user) {
+  if ( user) {
+    // User is signed in.
+    var email = user.email;
+ 
+    localStorage.setItem('Name', displayName);
+    console.log(email,displayName);
+    window.location.href ="Video.html"
+
+  } else {
+    // No user is signed in.
+  }
+});
+
+                    })
+                    .catch((error) => {
+                        // The write failed...
+                        alert(error);
+                    });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+   })
+
+   localStorage.setItem('time', displayName);
+
+</script>
